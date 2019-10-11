@@ -1,5 +1,4 @@
 import os
-import sys
 import re
 
 import requests
@@ -10,15 +9,17 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import numpy as np
 
+from difflib import SequenceMatcher
 
-
-
-PARSER = 'lxml'
-CSV_PATH = 'data/tags_percent.csv'
+from constants import *
 
 
 
 class Cleaner:
+
+
+    # Not removing these tags because they are parents of every tag
+    tags_not_to_remove = ["body", "head", "html"]
 
 
     def __init__(self, url):
@@ -26,10 +27,10 @@ class Cleaner:
 
         # Getting the HTML source
         resp = requests.get(self.url)
-        self.src = resp.text
+        self.init_src = resp.text
 
         # Creating the BeautifulSoup Object
-        self.soup = BeautifulSoup(self.src, PARSER)
+        self.soup = BeautifulSoup(self.init_src, PARSER)
 
         self.__get_tags()
         print("TAGS:", self.tags)
@@ -40,18 +41,18 @@ class Cleaner:
         self.__common_tags()
 
         print(self.common_tags)
-        
+
 
 
     def __get_tags(self):
         '''
-        TODO: Add function description
+        Creates a list with unique values - tags of the source code 
         '''
 
         self.tags = []
 
         for tag in self.soup.find_all():
-            if tag.name != 'body' and tag.name != 'html' and tag.name != 'head':
+            if tag.name not in tags_not_to_remove:
                 self.tags.append(tag.name)
 
         # Filtering only unique tags
@@ -59,24 +60,18 @@ class Cleaner:
 
 
 
-    def __get_tag_string(self):
-        '''
-        TODO: Add function description
-        '''
-
-        pass
-
-
 
     def __csv_tags_stats(self):
         '''
-        TODO: Add function description
+        Creates a DataFrame out of the Excel file in the data/ directory.
+        Then filters out tags that will NOT be removed, by the percentage regarding each tag. 
         '''
 
         # Filtering the tags by percentage
         # Ordering the tags from the CSV file in descending order
         df = pd.read_csv(CSV_PATH)
-        df = df[df["Percent"] > 50.0].sort_values(by=["Percent"], ascending=False)
+        df = df[df["Percent"] > PERCENTAGE_LIMIT].sort_values(by=["Percent"], 
+                                                              ascending=False)
 
         # Making a list out of all remaining tags
         np.asarray(df)
@@ -87,23 +82,39 @@ class Cleaner:
 
 
     def __clean_empty_tags(self):
+        '''
+        Removes empty tag, recursively, not in the sense of actually using recursion,
+        but as a way of solution design.
+        '''
+
+        curr_string = str(self.soup)
+
+        re_empty_tags = r"<([^>]+)(?:[^>]+)?>[\W]*?<\/\1>"
+
+        print(len(curr_string))
+
+        prev_string = ''
+
+        while prev_string != curr_string:
+            prev_string = curr_string
+            
+            curr_string = re.sub(pattern=re_empty_tags,
+                                 repl='',
+                                 string=curr_string,
+                                 flags=re.MULTILINE)
+
+            print("Current len: ", len(curr_string))
         
-        for tag in self.soup.find_all():
-            curr_content = str(tag.get_text())            
 
-            print("CONTENT:", curr_content, len(curr_content))
-
-            if re.search(r"^\s*$", curr_content):
-                try:
-                    print(tag)
-                except (AttributeError):
-                    print("FAIL LOL LMAO")
-                tag.decompose()
-
+        self.soup = BeautifulSoup(curr_string, PARSER)
 
 
 
     def __common_tags(self):
+        '''
+        Gets the common tags between the chosen Excel tags - __csv_tags_stats() and
+        the tags in the html source code - __get_tags()
+        '''
         
         self.common_tags = []
 
@@ -113,78 +124,117 @@ class Cleaner:
                 self.common_tags.append(tag)
 
 
-    def save_source(self, filename="source", ext="html"):
 
-        with open(f"{filename}.{ext}", 'w', encoding="utf-8") as f:
+    def __clean_additional(self, tags):
+        '''
+        Cleans tags that are not in the list of the deleted ones.
+        '''
+
+        for tag in tags:
+
+            for curr_tag in self.soup.find_all(tag):
+                self.deleted_tags.add(curr_tag.name)
+                curr_tag.decompose()
+
+
+
+    def save_source(self, filename="source", ext="html"):
+        '''
+        Saves the result of the cleaning in the data/ folder.
+        '''
+
+        with open(f"{filename}.{ext}", "w", encoding="utf-8") as f:
             soup_str = str(self.soup)
             f.write(soup_str)
 
 
 
-    def clean(self):
+    def clean(self, additional_tags=None, skip_tags=[]):
         '''
-        TODO: Add function description
+        Removes all unneeded tags.
         '''
+
+        self.deleted_tags = set()
 
         for tag in self.tags:
 
-            if tag not in self.common_tags:
-                print(f"{tag} removed!")
-                
-                for curr_tag in self.soup.find_all(tag):
-                    curr_tag.decompose()
+            if tag not in skip_tags:
 
-
+                if tag not in self.common_tags:
+                    print(f"{tag} removed!")
+                    
+                    for curr_tag in self.soup.find_all(tag):
+                        self.deleted_tags.add(curr_tag.name)
+                        curr_tag.decompose()
+            
+        if additional_tags:
+            self.__clean_additional(additional_tags)
+        
         self.__clean_empty_tags()
 
         return self
 
-    
+  
 
     def minify(self):
         '''
-        TODO: Add function description
+        Removes whitespace between tags.
         '''
-        pass
+        
+        pattern = ">\s*<"
 
-
-
-
-    def clean_additional(self, tags):
-        '''
-        TODO: Add function description
-        '''
-
-
-        for tag in tags:
-
-            for curr_tag in self.soup.find_all(tag):
-                curr_tag.decompose()
-
+        self.minified = re.sub(pattern=pattern,
+                               repl="><",
+                               string=str(self.soup),
+                               flags=re.MULTILINE)
 
         return self
 
 
 
+    def get_removed_tags(self):
+        '''
+        Returns a list of all deleted tags.
+        '''
+        
+        return self.deleted_tags
+
+
+
+    def __str__(self):
+
+        return str(self.soup)
 
 
 
 
 
-
-class Differentiator:
-
+class Specificator:
     
-    def compare(self, ):
+    def __init__(self, cleaner):
+        self.cleaner = cleaner
+
+
+    def get_body_tag(self):
+        
         pass
+        
+
 
 
 
 if __name__ == "__main__":
 
-    cleaner = Cleaner("https://www.dnes.bg/sofia/2019/10/10/lek-trus-na-50-km-ot-sofiia-sled-polunosht.425648")
+    cleaner = Cleaner("https://www.techhive.com/article/3445400/roku-ultra-2019-review-its-all-about-the-buttons.html")
 
-    cleaner.clean().clean_additional(["a"])
+    cleaner.clean(additional_tags=[], skip_tags=[])
+
+    cleaner.minify()
 
     cleaner.save_source()
+
+    print(cleaner.get_removed_tags())
+
+    # spec = Specificator(cleaner)
+    # print(spec.get_body_tag())
     
