@@ -32,12 +32,15 @@ class Cleaner:
         # Creating the BeautifulSoup Object
         self.soup = BeautifulSoup(self.init_src, PARSER)
 
+        # Creating the variable self.tags
         self.__get_tags()
         print("TAGS:", self.tags)
 
+        # Creating the variable self.csv_tags
         self.__csv_tags_stats()
         print("CSV_TAGS:", self.csv_tags)
 
+        # Creating the variable self.common_tags
         self.__common_tags()
 
         print(self.common_tags)
