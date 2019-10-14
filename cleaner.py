@@ -12,6 +12,11 @@ import numpy as np
 from difflib import SequenceMatcher
 
 from constants import *
+from logger import Logger
+
+
+
+log = Logger()
 
 
 
@@ -22,28 +27,24 @@ class Cleaner:
     tags_not_to_remove = ["body", "head", "html"]
 
 
-    def __init__(self, url):
-        self.url = url
+    def __init__(self, src):
+        self.init_src = src
 
-        # Getting the HTML source
-        resp = requests.get(self.url)
-        self.init_src = resp.text
 
         # Creating the BeautifulSoup Object
         self.soup = BeautifulSoup(self.init_src, PARSER)
 
         # Creating the variable self.tags
         self.__get_tags()
-        print("TAGS:", self.tags)
+        log.add(f"TAGS: {self.tags}")
+        log.add(f"TAGS: {self.tags}")
 
         # Creating the variable self.csv_tags
         self.__csv_tags_stats()
-        print("CSV_TAGS:", self.csv_tags)
+        log.add(f"CSV_TAGS: {self.csv_tags}")
 
         # Creating the variable self.common_tags
         self.__common_tags()
-
-        print(self.common_tags)
 
 
 
@@ -55,7 +56,7 @@ class Cleaner:
         self.tags = []
 
         for tag in self.soup.find_all():
-            if tag.name not in tags_not_to_remove:
+            if tag.name not in self.tags_not_to_remove:
                 self.tags.append(tag.name)
 
         # Filtering only unique tags
@@ -84,6 +85,21 @@ class Cleaner:
 
 
 
+    def __clean_comments(self):
+
+        re_comments = r"<!\-\-[^~]+?\-\->";
+
+        curr_html = str(self.soup)
+
+        new_html = re.sub(pattern=re_comments,
+                          repl='',
+                          string=curr_html,
+                          flags=re.MULTILINE)
+
+        self.soup = BeautifulSoup(new_html, PARSER)
+
+
+
     def __clean_empty_tags(self):
         '''
         Removes empty tag, recursively, not in the sense of actually using recursion,
@@ -94,7 +110,7 @@ class Cleaner:
 
         re_empty_tags = r"<([^>]+)(?:[^>]+)?>[\W]*?<\/\1>"
 
-        print(len(curr_string))
+        log.add(len(curr_string))
 
         prev_string = ''
 
@@ -106,7 +122,7 @@ class Cleaner:
                                  string=curr_string,
                                  flags=re.MULTILINE)
 
-            print("Current len: ", len(curr_string))
+            log.add(f"Current len: {len(curr_string)}")
         
 
         self.soup = BeautifulSoup(curr_string, PARSER)
@@ -130,7 +146,7 @@ class Cleaner:
 
     def __clean_additional(self, tags):
         '''
-        Cleans tags that are not in the list of the deleted ones.
+        Cleans tags that are not in the list of the ones to be deleted.
         '''
 
         for tag in tags:
@@ -164,7 +180,7 @@ class Cleaner:
             if tag not in skip_tags:
 
                 if tag not in self.common_tags:
-                    print(f"{tag} removed!")
+                    log.add(f"{tag} removed!")
                     
                     for curr_tag in self.soup.find_all(tag):
                         self.deleted_tags.add(curr_tag.name)
@@ -173,7 +189,10 @@ class Cleaner:
         if additional_tags:
             self.__clean_additional(additional_tags)
         
+        self.__clean_comments()
+        
         self.__clean_empty_tags()
+
 
         return self
 
@@ -228,16 +247,23 @@ class Specificator:
 
 if __name__ == "__main__":
 
-    cleaner = Cleaner("https://www.techhive.com/article/3445400/roku-ultra-2019-review-its-all-about-the-buttons.html")
 
-    cleaner.clean(additional_tags=[], skip_tags=[])
+    url = "https://moneyweek.com/515852/dont-touch-woodford-patient-capital-with-a-bargepole/"
+
+    # Getting the HTML source
+    resp = requests.get(url)
+    src = resp.text
+
+    cleaner = Cleaner(src)
+
+    cleaner.clean(additional_tags=['a'], skip_tags=['figure', 'figcaption'])
 
     cleaner.minify()
 
     cleaner.save_source()
 
-    print(cleaner.get_removed_tags())
+    log.add(cleaner.get_removed_tags())
 
     # spec = Specificator(cleaner)
-    # print(spec.get_body_tag())
+    # log.add(spec.get_body_tag())
     
