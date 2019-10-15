@@ -20,8 +20,10 @@ log = Logger()
 
 
 
-class Cleaner:
+# TODO: TRY TO IMPLEMENT A DECORATOR IN SOME CASES (HINT: ADDITIONAL CLEANING...)
 
+
+class Cleaner:
 
     # Not removing these tags because they are parents of every tag
     tags_not_to_remove = ["body", "head", "html"]
@@ -56,6 +58,7 @@ class Cleaner:
         self.tags = []
 
         for tag in self.soup.find_all():
+
             if tag.name not in self.tags_not_to_remove:
                 self.tags.append(tag.name)
 
@@ -73,7 +76,7 @@ class Cleaner:
 
         # Filtering the tags by percentage
         # Ordering the tags from the CSV file in descending order
-        df = pd.read_csv(CSV_PATH)
+        df = pd.read_csv(CSV_PATH, error_bad_lines=False)
         df = df[df["Percent"] > PERCENTAGE_LIMIT].sort_values(by=["Percent"], 
                                                               ascending=False)
 
@@ -86,6 +89,9 @@ class Cleaner:
 
 
     def __clean_comments(self):
+        '''
+        Removes the comments off the HTML
+        '''
 
         re_comments = r"<!\-\-[^~]+?\-\->";
 
@@ -200,7 +206,8 @@ class Cleaner:
 
     def minify(self):
         '''
-        Removes whitespace between tags.
+        Creates a variable self.minified which is the source code
+        without whitespace between tags.
         '''
         
         pattern = ">\s*<"
@@ -231,22 +238,8 @@ class Cleaner:
 
 
 
-class Specificator:
-    
-    def __init__(self, cleaner):
-        self.cleaner = cleaner
-
-
-    def get_body_tag(self):
-        
-        pass
-        
-
-
-
 
 if __name__ == "__main__":
-
 
     url = "https://moneyweek.com/515852/dont-touch-woodford-patient-capital-with-a-bargepole/"
 

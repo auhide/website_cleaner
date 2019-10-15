@@ -1,28 +1,28 @@
-L O G   >>>   TAGS: ['img', 'span', 'header', 'h3', 'footer', 'noscript', 'div', 'meta', 'script', 'li', 'br', 'form', 'p', 'hr', 'strong', 'iframe', 'i', 'title', 'link', 'style', 'h4', 'aside', 'ul', 'font', 'time', 'input', 'article', 'nav', 'h1', 'a', 'h2']
-L O G   >>>   TAGS: ['img', 'span', 'header', 'h3', 'footer', 'noscript', 'div', 'meta', 'script', 'li', 'br', 'form', 'p', 'hr', 'strong', 'iframe', 'i', 'title', 'link', 'style', 'h4', 'aside', 'ul', 'font', 'time', 'input', 'article', 'nav', 'h1', 'a', 'h2']
-L O G   >>>   CSV_TAGS: ['p', 'div', 'h1', 'h2', 'h3', 'span', 'li', 'ul', 'article', 'a', 'section', 'u', 'title', 'header', 'strong', 'h4', 'main']
-L O G   >>>   img removed!
-L O G   >>>   footer removed!
-L O G   >>>   noscript removed!
-L O G   >>>   meta removed!
-L O G   >>>   script removed!
-L O G   >>>   br removed!
-L O G   >>>   form removed!
-L O G   >>>   hr removed!
-L O G   >>>   iframe removed!
-L O G   >>>   i removed!
-L O G   >>>   link removed!
-L O G   >>>   style removed!
-L O G   >>>   aside removed!
-L O G   >>>   font removed!
-L O G   >>>   time removed!
-L O G   >>>   input removed!
-L O G   >>>   nav removed!
-L O G   >>>   11391
-L O G   >>>   Current len: 9905
-L O G   >>>   Current len: 9643
-L O G   >>>   Current len: 9172
-L O G   >>>   Current len: 9145
-L O G   >>>   Current len: 9102
-L O G   >>>   Current len: 9102
-L O G   >>>   {'noscript', 'font', 'img', 'time', 'meta', 'script', 'nav', 'br', 'hr', 'iframe', 'i', 'link', 'a', 'style', 'aside', 'footer', 'form'}
+2019-10-15 17:48:40,397 - DEBUG - TAGS: ['title', 'noscript', 'article', 'p', 'li', 'img', 'strong', 'i', 'font', 'time', 'aside', 'div', 'span', 'form', 'br', 'h3', 'header', 'nav', 'h2', 'footer', 'script', 'hr', 'meta', 'a', 'ul', 'h1', 'h4', 'style', 'link', 'input', 'iframe']
+2019-10-15 17:48:40,397 - DEBUG - TAGS: ['title', 'noscript', 'article', 'p', 'li', 'img', 'strong', 'i', 'font', 'time', 'aside', 'div', 'span', 'form', 'br', 'h3', 'header', 'nav', 'h2', 'footer', 'script', 'hr', 'meta', 'a', 'ul', 'h1', 'h4', 'style', 'link', 'input', 'iframe']
+2019-10-15 17:48:40,406 - DEBUG - CSV_TAGS: ['p', 'div', 'h1', 'h2', 'h3', 'span', 'li', 'ul', 'article', 'a', 'section', 'u', 'title', 'ol', 'header', 'strong', 'h4', 'h5', 'main', 'h6']
+2019-10-15 17:48:40,407 - DEBUG - noscript removed!
+2019-10-15 17:48:40,444 - DEBUG - img removed!
+2019-10-15 17:48:40,446 - DEBUG - i removed!
+2019-10-15 17:48:40,447 - DEBUG - font removed!
+2019-10-15 17:48:40,450 - DEBUG - time removed!
+2019-10-15 17:48:40,469 - DEBUG - aside removed!
+2019-10-15 17:48:40,472 - DEBUG - form removed!
+2019-10-15 17:48:40,488 - DEBUG - br removed!
+2019-10-15 17:48:40,511 - DEBUG - nav removed!
+2019-10-15 17:48:40,514 - DEBUG - footer removed!
+2019-10-15 17:48:40,515 - DEBUG - script removed!
+2019-10-15 17:48:40,517 - DEBUG - hr removed!
+2019-10-15 17:48:40,518 - DEBUG - meta removed!
+2019-10-15 17:48:40,519 - DEBUG - style removed!
+2019-10-15 17:48:40,519 - DEBUG - link removed!
+2019-10-15 17:48:40,520 - DEBUG - input removed!
+2019-10-15 17:48:40,520 - DEBUG - iframe removed!
+2019-10-15 17:48:40,541 - DEBUG - 11391
+2019-10-15 17:48:40,549 - DEBUG - Current len: 9905
+2019-10-15 17:48:40,554 - DEBUG - Current len: 9643
+2019-10-15 17:48:40,559 - DEBUG - Current len: 9172
+2019-10-15 17:48:40,561 - DEBUG - Current len: 9145
+2019-10-15 17:48:40,563 - DEBUG - Current len: 9102
+2019-10-15 17:48:40,565 - DEBUG - Current len: 9102
+2019-10-15 17:48:40,578 - DEBUG - {'i', 'font', 'style', 'link', 'footer', 'script', 'time', 'aside', 'form', 'noscript', 'meta', 'a', 'nav', 'img'}
