@@ -20,7 +20,7 @@ class Logger:
         # Try to create the path to the Log file
         try:
             # Going back a folder
-            log_folder = os.path.abspath(os.path.join(LOG_DIR, ".."))
+            log_folder = os.path.abspath(os.path.join(dir, ".."))
                         
             os.makedirs(log_folder)
 
@@ -32,11 +32,11 @@ class Logger:
 
         # Delete the previous Log file
         try:
-            os.remove(LOG_DIR)
+            os.remove(dir)
         
         # If it does not exist, create it
         except FileNotFoundError:
-            open(LOG_DIR, 'w')
+            open(dir, 'w')
 
 
 

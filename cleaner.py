@@ -1,4 +1,5 @@
 import os
+import sys
 import re
 
 import requests
@@ -19,8 +20,6 @@ from logger import Logger
 log = Logger()
 
 
-
-# TODO: TRY TO IMPLEMENT A DECORATOR IN SOME CASES (HINT: ADDITIONAL CLEANING...)
 
 
 class Cleaner:
@@ -210,7 +209,7 @@ class Cleaner:
         without whitespace between tags.
         '''
         
-        pattern = ">\s*<"
+        pattern = r">\s*<"
 
         self.minified = re.sub(pattern=pattern,
                                repl="><",
@@ -241,7 +240,8 @@ class Cleaner:
 
 if __name__ == "__main__":
 
-    url = "https://moneyweek.com/515852/dont-touch-woodford-patient-capital-with-a-bargepole/"
+    # Getting the first argument off the console
+    url = sys.argv[1]
 
     # Getting the HTML source
     resp = requests.get(url)
