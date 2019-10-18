@@ -1,0 +1,21 @@
+2019-10-18 18:10:20,911 - DEBUG - TAGS: ['div', 'b', 'tr', 'style', 'td', 'p', 'a', 'u', 'meta', 'input', 'img', 'nobr', 'form', 'table', 'br', 'script', 'span', 'title', 'center']
+2019-10-18 18:10:20,917 - DEBUG - CSV_TAGS: ['p', 'div', 'h1', 'h2', 'h3', 'span', 'li', 'ul', 'article', 'a', 'section', 'u', 'title', 'ol', 'header', 'strong', 'h4', 'h5', 'main', 'h6']
+2019-10-18 18:10:20,917 - DEBUG - b removed!
+2019-10-18 18:10:20,918 - DEBUG - tr removed!
+2019-10-18 18:10:20,918 - DEBUG - style removed!
+2019-10-18 18:10:20,918 - DEBUG - td removed!
+2019-10-18 18:10:20,918 - DEBUG - meta removed!
+2019-10-18 18:10:20,918 - DEBUG - input removed!
+2019-10-18 18:10:20,919 - DEBUG - img removed!
+2019-10-18 18:10:20,919 - DEBUG - nobr removed!
+2019-10-18 18:10:20,920 - DEBUG - form removed!
+2019-10-18 18:10:20,920 - DEBUG - table removed!
+2019-10-18 18:10:20,920 - DEBUG - br removed!
+2019-10-18 18:10:20,920 - DEBUG - script removed!
+2019-10-18 18:10:20,920 - DEBUG - center removed!
+2019-10-18 18:10:20,922 - DEBUG - 308
+2019-10-18 18:10:20,922 - DEBUG - Current len: 175
+2019-10-18 18:10:20,922 - DEBUG - Current len: 152
+2019-10-18 18:10:20,923 - DEBUG - Current len: 123
+2019-10-18 18:10:20,923 - DEBUG - Current len: 123
+2019-10-18 18:10:20,925 - DEBUG - Removed tags: {'br', 'nobr', 'input', 'img', 'script', 'b', 'meta', 'form', 'tr', 'center', 'style'}
