@@ -1,21 +1,21 @@
-2019-10-21 11:39:43,884 - DEBUG - TAGS: ['input', 'tr', 'nobr', 'title', 'td', 'form', 'a', 'center', 'u', 'span', 'br', 'b', 'style', 'p', 'div', 'script', 'img', 'meta', 'table']
-2019-10-21 11:39:43,890 - DEBUG - CSV_TAGS: ['p', 'div', 'h1', 'h2', 'h3', 'span', 'li', 'ul', 'article', 'a', 'section', 'u', 'title', 'ol', 'header', 'strong', 'h4', 'h5', 'main', 'h6']
-2019-10-21 11:39:43,891 - DEBUG - input removed!
-2019-10-21 11:39:43,891 - DEBUG - tr removed!
-2019-10-21 11:39:43,891 - DEBUG - nobr removed!
-2019-10-21 11:39:43,891 - DEBUG - td removed!
-2019-10-21 11:39:43,892 - DEBUG - form removed!
-2019-10-21 11:39:43,892 - DEBUG - center removed!
-2019-10-21 11:39:43,892 - DEBUG - br removed!
-2019-10-21 11:39:43,892 - DEBUG - b removed!
-2019-10-21 11:39:43,893 - DEBUG - style removed!
-2019-10-21 11:39:43,893 - DEBUG - script removed!
-2019-10-21 11:39:43,893 - DEBUG - img removed!
-2019-10-21 11:39:43,893 - DEBUG - meta removed!
-2019-10-21 11:39:43,894 - DEBUG - table removed!
-2019-10-21 11:39:43,895 - DEBUG - 308
-2019-10-21 11:39:43,895 - DEBUG - Current len: 175
-2019-10-21 11:39:43,896 - DEBUG - Current len: 152
-2019-10-21 11:39:43,896 - DEBUG - Current len: 123
-2019-10-21 11:39:43,896 - DEBUG - Current len: 123
-2019-10-21 11:39:43,897 - DEBUG - Removed tags: {'style', 'script', 'center', 'input', 'tr', 'meta', 'nobr', 'form'}
+2019-10-21 11:47:11,184 - DEBUG - TAGS: ['br', 'title', 'u', 'style', 'input', 'img', 'form', 'span', 'meta', 'div', 'center', 'nobr', 'script', 'b', 'a', 'tr', 'table', 'td', 'p']
+2019-10-21 11:47:11,192 - DEBUG - CSV_TAGS: ['p', 'div', 'h1', 'h2', 'h3', 'span', 'li', 'ul', 'article', 'a', 'section', 'u', 'title', 'ol', 'header', 'strong', 'h4', 'h5', 'main', 'h6']
+2019-10-21 11:47:11,192 - DEBUG - br removed!
+2019-10-21 11:47:11,192 - DEBUG - style removed!
+2019-10-21 11:47:11,193 - DEBUG - input removed!
+2019-10-21 11:47:11,193 - DEBUG - img removed!
+2019-10-21 11:47:11,193 - DEBUG - form removed!
+2019-10-21 11:47:11,193 - DEBUG - meta removed!
+2019-10-21 11:47:11,194 - DEBUG - center removed!
+2019-10-21 11:47:11,194 - DEBUG - nobr removed!
+2019-10-21 11:47:11,195 - DEBUG - script removed!
+2019-10-21 11:47:11,195 - DEBUG - b removed!
+2019-10-21 11:47:11,196 - DEBUG - tr removed!
+2019-10-21 11:47:11,196 - DEBUG - table removed!
+2019-10-21 11:47:11,196 - DEBUG - td removed!
+2019-10-21 11:47:11,198 - DEBUG - 308
+2019-10-21 11:47:11,198 - DEBUG - Current len: 175
+2019-10-21 11:47:11,199 - DEBUG - Current len: 152
+2019-10-21 11:47:11,199 - DEBUG - Current len: 123
+2019-10-21 11:47:11,199 - DEBUG - Current len: 123
+2019-10-21 11:47:11,201 - DEBUG - Removed tags: {'nobr', 'script', 'input', 'br', 'form', 'meta', 'img', 'style', 'center'}
