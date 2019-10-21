@@ -3,7 +3,7 @@ import unittest
 
 from test_cases import *
 
-from cleaner import Cleaner
+from Cleaner.cleaner import Cleaner 
 
 
 
@@ -17,6 +17,11 @@ def use_cleaner(html_snippet):
     cleaner.clean()
     
     return str(cleaner)
+
+
+def prepare_htmls():
+    pass
+
 
 
 class CleanerTest(unittest.TestCase):

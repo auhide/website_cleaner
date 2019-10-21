@@ -3,17 +3,14 @@ import sys
 import re
 
 import requests
-import difflib
 import math
 
 from bs4 import BeautifulSoup
 import pandas as pd
 import numpy as np
 
-from difflib import SequenceMatcher
-
-from constants import *
-from output.logger import Logger
+from Cleaner.constants import *
+from Cleaner.output.logger import Logger
 
 
 
@@ -254,7 +251,4 @@ if __name__ == "__main__":
     cleaner.save_source()
 
     log.add(f"Removed tags: {cleaner.get_removed_tags()}")
-
-    # spec = Specificator(cleaner)
-    # log.add(spec.get_body_tag())
     
