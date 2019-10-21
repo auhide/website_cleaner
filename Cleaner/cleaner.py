@@ -9,8 +9,8 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import numpy as np
 
-from Cleaner.constants import *
-from Cleaner.output.logger import Logger
+from constants import *
+from output.logger import Logger
 
 
 

@@ -1,7 +1,7 @@
 
 import os
 import logging
-from Cleaner.constants import LOG_DIR
+from constants import LOG_DIR
 
 
 
