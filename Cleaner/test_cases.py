@@ -46,6 +46,13 @@ empty_tags = (
 comment_test = (
     '''
     <!-- Favicon -->
+    <!--[if IE 9]>
+    <style type="text/css">
+      * {
+        filter: none !important;
+      }
+    </style>
+	<![endif]-->
     ''',
 
 
