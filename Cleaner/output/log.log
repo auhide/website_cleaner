@@ -1,21 +1,15 @@
-2019-10-21 11:47:11,184 - DEBUG - TAGS: ['br', 'title', 'u', 'style', 'input', 'img', 'form', 'span', 'meta', 'div', 'center', 'nobr', 'script', 'b', 'a', 'tr', 'table', 'td', 'p']
-2019-10-21 11:47:11,192 - DEBUG - CSV_TAGS: ['p', 'div', 'h1', 'h2', 'h3', 'span', 'li', 'ul', 'article', 'a', 'section', 'u', 'title', 'ol', 'header', 'strong', 'h4', 'h5', 'main', 'h6']
-2019-10-21 11:47:11,192 - DEBUG - br removed!
-2019-10-21 11:47:11,192 - DEBUG - style removed!
-2019-10-21 11:47:11,193 - DEBUG - input removed!
-2019-10-21 11:47:11,193 - DEBUG - img removed!
-2019-10-21 11:47:11,193 - DEBUG - form removed!
-2019-10-21 11:47:11,193 - DEBUG - meta removed!
-2019-10-21 11:47:11,194 - DEBUG - center removed!
-2019-10-21 11:47:11,194 - DEBUG - nobr removed!
-2019-10-21 11:47:11,195 - DEBUG - script removed!
-2019-10-21 11:47:11,195 - DEBUG - b removed!
-2019-10-21 11:47:11,196 - DEBUG - tr removed!
-2019-10-21 11:47:11,196 - DEBUG - table removed!
-2019-10-21 11:47:11,196 - DEBUG - td removed!
-2019-10-21 11:47:11,198 - DEBUG - 308
-2019-10-21 11:47:11,198 - DEBUG - Current len: 175
-2019-10-21 11:47:11,199 - DEBUG - Current len: 152
-2019-10-21 11:47:11,199 - DEBUG - Current len: 123
-2019-10-21 11:47:11,199 - DEBUG - Current len: 123
-2019-10-21 11:47:11,201 - DEBUG - Removed tags: {'nobr', 'script', 'input', 'br', 'form', 'meta', 'img', 'style', 'center'}
+2019-10-21 17:30:59,899 - DEBUG - TAGS: ['div', 'p', 'h1', 'h2']
+2019-10-21 17:30:59,905 - DEBUG - CSV_TAGS: ['p', 'div', 'h1', 'h2', 'h3', 'span', 'li', 'ul', 'article', 'a', 'section', 'u', 'title', 'ol', 'header', 'strong', 'h4', 'h5', 'br', 'main', 'h6']
+2019-10-21 17:30:59,907 - DEBUG - 80
+2019-10-21 17:30:59,908 - DEBUG - Current len: 42
+2019-10-21 17:30:59,908 - DEBUG - Current len: 29
+2019-10-21 17:30:59,908 - DEBUG - Current len: 13
+2019-10-21 17:30:59,908 - DEBUG - Current len: 0
+2019-10-21 17:30:59,909 - DEBUG - Current len: 0
+2019-10-21 17:30:59,910 - DEBUG - TAGS: ['script']
+2019-10-21 17:30:59,914 - DEBUG - CSV_TAGS: ['p', 'div', 'h1', 'h2', 'h3', 'span', 'li', 'ul', 'article', 'a', 'section', 'u', 'title', 'ol', 'header', 'strong', 'h4', 'h5', 'br', 'main', 'h6']
+2019-10-21 17:30:59,915 - DEBUG - script removed!
+2019-10-21 17:30:59,915 - DEBUG - 27
+2019-10-21 17:30:59,916 - DEBUG - Current len: 13
+2019-10-21 17:30:59,916 - DEBUG - Current len: 0
+2019-10-21 17:30:59,916 - DEBUG - Current len: 0
