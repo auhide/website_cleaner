@@ -3,7 +3,7 @@ import unittest
 
 from test_cases import *
 
-from Cleaner.cleaner import Cleaner 
+from cleaner import Cleaner 
 
 
 
