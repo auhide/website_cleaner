@@ -43,3 +43,11 @@ empty_tags = (
 )
 
 
+comment_test = (
+    '''
+    <!-- Favicon -->
+    ''',
+
+
+    ''''''
+)
