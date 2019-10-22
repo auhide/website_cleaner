@@ -33,10 +33,7 @@ class CleanerTest(unittest.TestCase):
         Tests the removal of the <script> tag
         '''
 
-        filtered_html = use_cleaner(script_test[TEST_INDEX])
-        filtered_html.strip()
-        result_html = script_test[RESULT_INDEX]
-        result_html.strip()
+        [filtered_html, result_html] = processing_for_test(script_test)
 
         self.assertEqual(filtered_html, result_html)
 
@@ -48,11 +45,15 @@ class CleanerTest(unittest.TestCase):
         '''
 
         [filtered_html, result_html] = processing_for_test(empty_tags)
-        filtered_html = use_cleaner(empty_tags[TEST_INDEX])
-        filtered_html.strip()
-        print(filtered_html)
-        result_html = empty_tags[RESULT_INDEX]
-        result_html.strip()
+
+        self.assertEqual(filtered_html, result_html)
+
+
+    def test_comment(self):
+        '''
+        Tests the removal of comments and also <style> tags
+        '''
+        [filtered_html, result_html] = processing_for_test(comment_test)
 
         self.assertEqual(filtered_html, result_html)
 
