@@ -58,3 +58,21 @@ comment_test = (
 
     ''''''
 )
+
+
+arab_and_comment = (
+    '''<li id="lang-list-tab3" aria-selected="false" role="tab" aria-controls="lang-tab3">
+                         <!-- <a href="#lang-tab3" title="Europe Tab">-->
+                         <span class="region-title"><span class="icon-arrow-down"></span>اوروبا<span class="text-hide">tab</span></span>
+                         <span class="region-image"></span>
+                          <!--</a>-->
+                      </li>
+    ''',
+
+    '''<html><body>
+                <li aria-controls="lang-tab3" aria-selected="false" id="lang-list-tab3" role="tab">
+                         <span class="region-title">اوروبا<span class="text-hide">tab</span></span>
+                </li>
+    </body></html>
+    '''
+)

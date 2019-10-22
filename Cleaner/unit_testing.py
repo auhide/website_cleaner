@@ -27,6 +27,7 @@ def prepare_htmls():
 class CleanerTest(unittest.TestCase):
 
 
+
     def test_script(self):
         '''
         Tests the removal of the <script> tag
@@ -46,6 +47,7 @@ class CleanerTest(unittest.TestCase):
         Tests the removal of empty tags
         '''
 
+        [filtered_html, result_html] = processing_for_test(empty_tags)
         filtered_html = use_cleaner(empty_tags[TEST_INDEX])
         filtered_html.strip()
         print(filtered_html)
@@ -54,6 +56,30 @@ class CleanerTest(unittest.TestCase):
 
         self.assertEqual(filtered_html, result_html)
 
+
+
+    def test_arab(self):
+        '''
+        Tests the removal of comments and the encoding output of BeautifulSoup for arab
+        '''
+
+        [filtered_html, result_html] = processing_for_test(arab_and_comment)
+
+        self.assertEqual(filtered_html, result_html)
+
+
+def strip_white_space(text):
+    return text.replace(" ", "").replace("\t", "").replace("\n", "")
+
+
+def processing_for_test(test_case):
+    filtered_html = use_cleaner(test_case[TEST_INDEX])
+    filtered_html = strip_white_space(filtered_html)
+
+    result_html = test_case[RESULT_INDEX]
+    result_html = strip_white_space(result_html)
+
+    return [filtered_html, result_html]
 
 
 if __name__ == "__main__":
