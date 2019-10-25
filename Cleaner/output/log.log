@@ -1,15 +1,32 @@
-2019-10-21 17:30:59,899 - DEBUG - TAGS: ['div', 'p', 'h1', 'h2']
-2019-10-21 17:30:59,905 - DEBUG - CSV_TAGS: ['p', 'div', 'h1', 'h2', 'h3', 'span', 'li', 'ul', 'article', 'a', 'section', 'u', 'title', 'ol', 'header', 'strong', 'h4', 'h5', 'br', 'main', 'h6']
-2019-10-21 17:30:59,907 - DEBUG - 80
-2019-10-21 17:30:59,908 - DEBUG - Current len: 42
-2019-10-21 17:30:59,908 - DEBUG - Current len: 29
-2019-10-21 17:30:59,908 - DEBUG - Current len: 13
-2019-10-21 17:30:59,908 - DEBUG - Current len: 0
-2019-10-21 17:30:59,909 - DEBUG - Current len: 0
-2019-10-21 17:30:59,910 - DEBUG - TAGS: ['script']
-2019-10-21 17:30:59,914 - DEBUG - CSV_TAGS: ['p', 'div', 'h1', 'h2', 'h3', 'span', 'li', 'ul', 'article', 'a', 'section', 'u', 'title', 'ol', 'header', 'strong', 'h4', 'h5', 'br', 'main', 'h6']
-2019-10-21 17:30:59,915 - DEBUG - script removed!
-2019-10-21 17:30:59,915 - DEBUG - 27
-2019-10-21 17:30:59,916 - DEBUG - Current len: 13
-2019-10-21 17:30:59,916 - DEBUG - Current len: 0
-2019-10-21 17:30:59,916 - DEBUG - Current len: 0
+2019-10-21 12:12:48,859 - DEBUG - TAGS: ['footer', 'i', 'table', 'h2', 'b', 'h6', 'form', 'td', 'button', 'title', 'link', 'h1', 'use', 'span', 'th', 'img', 'strong', 'fieldset', 'main', 'input', 'h4', 'svg', 'path', 'script', 'header', 'a', 'label', 'hr', 'li', 'ul', 'tr', 'meta', 'h3', 'div', 'nav', 'section', 'style', 'p']
+2019-10-21 12:12:48,867 - DEBUG - CSV_TAGS: ['p', 'div', 'h1', 'h2', 'h3', 'span', 'li', 'ul', 'article', 'a', 'section', 'u', 'title', 'ol', 'header', 'strong', 'h4', 'h5', 'main', 'h6']
+2019-10-21 12:12:48,867 - DEBUG - footer removed!
+2019-10-21 12:12:48,869 - DEBUG - i removed!
+2019-10-21 12:12:48,870 - DEBUG - table removed!
+2019-10-21 12:12:48,871 - DEBUG - b removed!
+2019-10-21 12:12:48,872 - DEBUG - form removed!
+2019-10-21 12:12:48,874 - DEBUG - td removed!
+2019-10-21 12:12:48,876 - DEBUG - button removed!
+2019-10-21 12:12:48,877 - DEBUG - link removed!
+2019-10-21 12:12:48,878 - DEBUG - use removed!
+2019-10-21 12:12:48,879 - DEBUG - th removed!
+2019-10-21 12:12:48,879 - DEBUG - img removed!
+2019-10-21 12:12:48,880 - DEBUG - fieldset removed!
+2019-10-21 12:12:48,881 - DEBUG - input removed!
+2019-10-21 12:12:48,882 - DEBUG - svg removed!
+2019-10-21 12:12:48,882 - DEBUG - path removed!
+2019-10-21 12:12:48,883 - DEBUG - script removed!
+2019-10-21 12:12:48,885 - DEBUG - label removed!
+2019-10-21 12:12:48,885 - DEBUG - hr removed!
+2019-10-21 12:12:48,886 - DEBUG - tr removed!
+2019-10-21 12:12:48,887 - DEBUG - meta removed!
+2019-10-21 12:12:48,888 - DEBUG - nav removed!
+2019-10-21 12:12:48,889 - DEBUG - style removed!
+2019-10-21 12:12:48,920 - DEBUG - 12909
+2019-10-21 12:12:48,943 - DEBUG - Current len: 10613
+2019-10-21 12:12:48,962 - DEBUG - Current len: 9900
+2019-10-21 12:12:48,978 - DEBUG - Current len: 9417
+2019-10-21 12:12:48,994 - DEBUG - Current len: 9252
+2019-10-21 12:12:49,010 - DEBUG - Current len: 9153
+2019-10-21 12:12:49,026 - DEBUG - Current len: 9153
+2019-10-21 12:12:49,043 - DEBUG - Removed tags: {'footer', 'a', 'i', 'img', 'hr', 'b', 'form', 'script', 'meta', 'button', 'nav', 'style', 'input', 'link'}

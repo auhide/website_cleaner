@@ -8,7 +8,7 @@ HOME_PATH = os.path.dirname(os.path.abspath(__file__))
 
 
 PARSER = 'lxml'
-PERCENTAGE_LIMIT = 50.0
+KEEP_TAG = 1
 
 # Creating the Absolute Paths
 CSV_PATH =  'data\\tags_percent.csv'
