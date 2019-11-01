@@ -54,7 +54,7 @@ header,1
 ,
 button,0
 ,
-i,0
+i,1
 ,
 article,1
 ,
@@ -81,3 +81,17 @@ td,1
 tr,1
 ,
 tbody,1
+,
+small,1
+,
+sup,1
+,
+ins,1
+,
+sub,1
+,
+del,1
+,
+mark,1
+,
+b,1

@@ -27,7 +27,6 @@ class Cleaner:
     def __init__(self, src):
         self.init_src = src
 
-
         # Creating the BeautifulSoup Object
         self.soup = BeautifulSoup(self.init_src, PARSER)
 
@@ -79,6 +78,16 @@ class Cleaner:
         
         self.csv_tags = list(df)
 
+
+    def __clean_anchors(self):
+        
+        # Removing the <a> tag, but leaving out the text in it
+        curr_html = str(self.soup)
+        curr_html = re.sub(pattern='(?:<a[^<]+>)|(?:<\s*\/a\s*>)',
+                            repl='',
+                            string=curr_html)
+        
+        self.soup = BeautifulSoup(curr_html, PARSER)
 
 
     def __clean_comments(self):
@@ -167,7 +176,7 @@ class Cleaner:
 
 
 
-    def clean(self, additional_tags=None, skip_tags=[]):
+    def clean(self, additional_tags=None, skip_tags=[], anchors_text=False):
         '''
         Removes all unneeded tags.
         '''
@@ -191,6 +200,8 @@ class Cleaner:
         self.__clean_comments()
         
         self.__clean_empty_tags()
+        if anchors_text:
+            self.__clean_anchors()
 
 
         return self
@@ -243,7 +254,7 @@ if __name__ == "__main__":
 
     cleaner = Cleaner(src)
 
-    cleaner.clean(additional_tags=['a'], skip_tags=['figure', 'figcaption'])
+    cleaner.clean(additional_tags=[], skip_tags=['figure', 'figcaption'], anchors_text=True)
 
     cleaner.minify()
 
