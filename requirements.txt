@@ -3,4 +3,4 @@ pandas==0.25.1
 numpy==1.16.5
 setuptools==41.2.0
 beautifulsoup4==4.8.1
-lxml==4.4.1
+lxml==4.6.2
